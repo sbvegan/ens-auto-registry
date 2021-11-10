@@ -4,7 +4,9 @@ It gives users the ability to auto renew their ENS domain.
 
 ## Planning
 
-A list of necessary features and actions for a MVP
+A list of necessary features and actions for a MVP.
+
+**NOTE:** This project will be developed with TDD principles.
 
 ### ENS Renewal Smart Contract 
 
