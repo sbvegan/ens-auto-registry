@@ -16,7 +16,7 @@ The application's Keeper compatible smart contract will have:
 
 - [ ] `checkUpkeep` and `performUpkeep` functions to maintain a `KeeperCompatibleInterface`.
     - NOTE: This is so it can be added to the Chainlink Keeper Registry
-- [ ] a way to check if the ENS domain is expired
+- [X] a way to check if the ENS domain is expired
 - [ ] a way to renew the ENS domain
 
 ### Deploy the Smart Contract
