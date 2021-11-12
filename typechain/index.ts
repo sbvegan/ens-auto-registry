@@ -2,9 +2,11 @@
 /* tslint:disable */
 /* eslint-disable */
 export type { KeeperCompatibleInterface } from "./KeeperCompatibleInterface";
-export type { ENSRenewal } from "./ENSRenewal";
+export type { ENSCheckAvailability } from "./ENSCheckAvailability";
 export type { IBaseRegistrar } from "./IBaseRegistrar";
+export type { ENSRenewal } from "./ENSRenewal";
 
 export { KeeperCompatibleInterface__factory } from "./factories/KeeperCompatibleInterface__factory";
-export { ENSRenewal__factory } from "./factories/ENSRenewal__factory";
+export { ENSCheckAvailability__factory } from "./factories/ENSCheckAvailability__factory";
 export { IBaseRegistrar__factory } from "./factories/IBaseRegistrar__factory";
+export { ENSRenewal__factory } from "./factories/ENSRenewal__factory";

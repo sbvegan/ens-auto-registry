@@ -17,6 +17,14 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.KeeperCompatibleInterface__factory>;
     getContractFactory(
+      name: "ENSCheckAvailability",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ENSCheckAvailability__factory>;
+    getContractFactory(
+      name: "IBaseRegistrar",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IBaseRegistrar__factory>;
+    getContractFactory(
       name: "ENSRenewal",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.ENSRenewal__factory>;
@@ -30,6 +38,16 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.KeeperCompatibleInterface>;
+    getContractAt(
+      name: "ENSCheckAvailability",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ENSCheckAvailability>;
+    getContractAt(
+      name: "IBaseRegistrar",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IBaseRegistrar>;
     getContractAt(
       name: "ENSRenewal",
       address: string,

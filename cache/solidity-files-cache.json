@@ -1,9 +1,45 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
+    "/home/soyboy/Code/ens-auto-registry/contracts/ENSCheckAvailability.sol": {
+      "lastModificationDate": 1636750647470,
+      "contentHash": "72ea3eb1339da8ea37f4058e6d5e381f",
+      "sourceName": "contracts/ENSCheckAvailability.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.7"
+      ],
+      "artifacts": [
+        "ENSCheckAvailability",
+        "IBaseRegistrar"
+      ]
+    },
     "/home/soyboy/Code/ens-auto-registry/contracts/ENSRenewal.sol": {
-      "lastModificationDate": 1636709543721,
-      "contentHash": "25ca335ab01a0d40f91fdbe7f1cd2805",
+      "lastModificationDate": 1636745387908,
+      "contentHash": "475b7b5eb9d683e635014edceafe5cf3",
       "sourceName": "contracts/ENSRenewal.sol",
       "solcConfig": {
         "version": "0.8.7",
