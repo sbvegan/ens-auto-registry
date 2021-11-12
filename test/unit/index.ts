@@ -13,8 +13,8 @@ describe("ENSRenewal Unit Tests", () => {
         await eNSRenewal.deployed();
     })
 
-    it("should", async () => {
-
-        // expect(true).to.equal(false)
+    it("should check if ens name is available", async () => {
+        const availability = await eNSRenewal.checkAvailability(0);
+        expect(availability).to.equal(false)
     })
 })

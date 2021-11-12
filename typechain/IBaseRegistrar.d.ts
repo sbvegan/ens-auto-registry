@@ -11,7 +11,6 @@ import {
   PopulatedTransaction,
   BaseContract,
   ContractTransaction,
-  Overrides,
   CallOverrides,
 } from "ethers";
 import { BytesLike } from "@ethersproject/bytes";
@@ -19,43 +18,22 @@ import { Listener, Provider } from "@ethersproject/providers";
 import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
 import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
-interface ENSRenewalInterface extends ethers.utils.Interface {
+interface IBaseRegistrarInterface extends ethers.utils.Interface {
   functions: {
-    "checkAvailability(uint256)": FunctionFragment;
-    "checkUpkeep(bytes)": FunctionFragment;
-    "performUpkeep(bytes)": FunctionFragment;
+    "available(uint256)": FunctionFragment;
   };
 
   encodeFunctionData(
-    functionFragment: "checkAvailability",
+    functionFragment: "available",
     values: [BigNumberish]
   ): string;
-  encodeFunctionData(
-    functionFragment: "checkUpkeep",
-    values: [BytesLike]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "performUpkeep",
-    values: [BytesLike]
-  ): string;
 
-  decodeFunctionResult(
-    functionFragment: "checkAvailability",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "checkUpkeep",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "performUpkeep",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "available", data: BytesLike): Result;
 
   events: {};
 }
 
-export class ENSRenewal extends BaseContract {
+export class IBaseRegistrar extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
@@ -96,87 +74,34 @@ export class ENSRenewal extends BaseContract {
     toBlock?: string | number | undefined
   ): Promise<Array<TypedEvent<EventArgsArray & EventArgsObject>>>;
 
-  interface: ENSRenewalInterface;
+  interface: IBaseRegistrarInterface;
 
   functions: {
-    checkAvailability(
-      _label: BigNumberish,
+    available(
+      label: BigNumberish,
       overrides?: CallOverrides
     ): Promise<[boolean]>;
-
-    checkUpkeep(
-      arg0: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
-    performUpkeep(
-      arg0: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
   };
 
-  checkAvailability(
-    _label: BigNumberish,
-    overrides?: CallOverrides
-  ): Promise<boolean>;
-
-  checkUpkeep(
-    arg0: BytesLike,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
-  performUpkeep(
-    arg0: BytesLike,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  available(label: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
 
   callStatic: {
-    checkAvailability(
-      _label: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
-
-    checkUpkeep(
-      arg0: BytesLike,
-      overrides?: CallOverrides
-    ): Promise<[boolean, string] & { upkeepNeeded: boolean }>;
-
-    performUpkeep(arg0: BytesLike, overrides?: CallOverrides): Promise<void>;
+    available(label: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
   };
 
   filters: {};
 
   estimateGas: {
-    checkAvailability(
-      _label: BigNumberish,
+    available(
+      label: BigNumberish,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
-
-    checkUpkeep(
-      arg0: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
-    performUpkeep(
-      arg0: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
-    checkAvailability(
-      _label: BigNumberish,
+    available(
+      label: BigNumberish,
       overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
-
-    checkUpkeep(
-      arg0: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
-    performUpkeep(
-      arg0: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };
 }
