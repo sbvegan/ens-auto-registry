@@ -6,10 +6,18 @@ const main = async () => {
     console.log("Deploying contracts with the account:", deployer.address);
     console.log("Account balance:", (await deployer.getBalance()).toString());
   
+    console.log("Deploying ENSRenewal...")
     const ENSRenewal = await ethers.getContractFactory("ENSRenewal");
     const eNSRenewal = await ENSRenewal.deploy();
-  
+    console.log("deployed.")
     console.log("ENSRenewal address:", eNSRenewal.address);
+
+    console.log("Deploying MockBaseRegistrar...")
+    const MockBaseRegistrar = await ethers.getContractFactory("MockBaseRegistrar");
+    const mockBaseRegistrar = await MockBaseRegistrar.deploy();
+    console.log("deployed.")
+    console.log("MockBaseRegistrar address:", mockBaseRegistrar.address);
+
 }
   
 main()

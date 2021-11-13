@@ -2,11 +2,23 @@
 /* tslint:disable */
 /* eslint-disable */
 export type { KeeperCompatibleInterface } from "./KeeperCompatibleInterface";
+export type { BaseRegistrar } from "./BaseRegistrar";
+export type { ENS } from "./ENS";
+export type { Ownable } from "./Ownable";
+export type { IERC721 } from "./IERC721";
+export type { IERC165 } from "./IERC165";
 export type { ENSCheckAvailability } from "./ENSCheckAvailability";
 export type { IBaseRegistrar } from "./IBaseRegistrar";
 export type { ENSRenewal } from "./ENSRenewal";
+export type { MockBaseRegistrar } from "./MockBaseRegistrar";
 
 export { KeeperCompatibleInterface__factory } from "./factories/KeeperCompatibleInterface__factory";
+export { BaseRegistrar__factory } from "./factories/BaseRegistrar__factory";
+export { ENS__factory } from "./factories/ENS__factory";
+export { Ownable__factory } from "./factories/Ownable__factory";
+export { IERC721__factory } from "./factories/IERC721__factory";
+export { IERC165__factory } from "./factories/IERC165__factory";
 export { ENSCheckAvailability__factory } from "./factories/ENSCheckAvailability__factory";
 export { IBaseRegistrar__factory } from "./factories/IBaseRegistrar__factory";
 export { ENSRenewal__factory } from "./factories/ENSRenewal__factory";
+export { MockBaseRegistrar__factory } from "./factories/MockBaseRegistrar__factory";

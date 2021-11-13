@@ -17,6 +17,26 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.KeeperCompatibleInterface__factory>;
     getContractFactory(
+      name: "BaseRegistrar",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.BaseRegistrar__factory>;
+    getContractFactory(
+      name: "ENS",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ENS__factory>;
+    getContractFactory(
+      name: "Ownable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.Ownable__factory>;
+    getContractFactory(
+      name: "IERC721",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC721__factory>;
+    getContractFactory(
+      name: "IERC165",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC165__factory>;
+    getContractFactory(
       name: "ENSCheckAvailability",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.ENSCheckAvailability__factory>;
@@ -32,12 +52,41 @@ declare module "hardhat/types/runtime" {
       name: "IBaseRegistrar",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IBaseRegistrar__factory>;
+    getContractFactory(
+      name: "MockBaseRegistrar",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MockBaseRegistrar__factory>;
 
     getContractAt(
       name: "KeeperCompatibleInterface",
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.KeeperCompatibleInterface>;
+    getContractAt(
+      name: "BaseRegistrar",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.BaseRegistrar>;
+    getContractAt(
+      name: "ENS",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ENS>;
+    getContractAt(
+      name: "Ownable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.Ownable>;
+    getContractAt(
+      name: "IERC721",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC721>;
+    getContractAt(
+      name: "IERC165",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC165>;
     getContractAt(
       name: "ENSCheckAvailability",
       address: string,
@@ -58,6 +107,11 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.IBaseRegistrar>;
+    getContractAt(
+      name: "MockBaseRegistrar",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MockBaseRegistrar>;
 
     // default types
     getContractFactory(
