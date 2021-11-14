@@ -21,13 +21,20 @@ describe("ENSRenewal Unit Tests", () => {
 
         console.log("deploying ENSRenewal contract...")
         ENSRenewal = await ethers.getContractFactory("ENSRenewal");
-        eNSRenewal = await ENSRenewal.deploy();
+        eNSRenewal = await ENSRenewal.deploy(mockBaseRegistrar.address);
         await eNSRenewal.deployed();
         console.log("deployed")
         console.log("-----------------------------------------------");
     })
 
     it("should check if ens name is available", async () => {
+        await mockBaseRegistrar.setExpired(true)
+        const availability = await eNSRenewal.checkAvailability(0);
+        expect(availability).to.equal(true)
+    })
+
+    it("should check if ens name is unavailable", async () => {
+        await mockBaseRegistrar.setExpired(false)
         const availability = await eNSRenewal.checkAvailability(0);
         expect(availability).to.equal(false)
     })

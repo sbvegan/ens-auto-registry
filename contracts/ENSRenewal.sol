@@ -9,7 +9,11 @@ interface IBaseRegistrar {
 
 contract ENSRenewal is KeeperCompatibleInterface {
 
-    address BaseRegistrarAddress = 0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85;
+    address BaseRegistrarAddress;
+
+    constructor(address _baseRegistrarAddress) {
+        BaseRegistrarAddress = _baseRegistrarAddress;
+    }
 
     function checkAvailability(uint256 _label) external view returns (bool) {
         return IBaseRegistrar(BaseRegistrarAddress).available(_label);

@@ -7,11 +7,11 @@ const main = async () => {
     console.log("Account balance:", (await deployer.getBalance()).toString());
 
     // TODO: figure out why I can't deploy this
-    // console.log("Deploying MockBaseRegistrar...")
-    // const MockBaseRegistrar = await ethers.getContractFactory("MockBaseRegistrar");
-    // const mockBaseRegistrar = await MockBaseRegistrar.deploy();
-    // console.log("deployed.")
-    // console.log("MockBaseRegistrar address:", mockBaseRegistrar.address);
+    console.log("Deploying MockBaseRegistrar...")
+    const MockBaseRegistrar = await ethers.getContractFactory("MockBaseRegistrar");
+    const mockBaseRegistrar = await MockBaseRegistrar.deploy();
+    console.log("deployed.")
+    console.log("MockBaseRegistrar address:", mockBaseRegistrar.address);
 
     console.log("Deploying ENSRenewal...")
     const ENSRenewal = await ethers.getContractFactory("ENSRenewal");
