@@ -10,21 +10,18 @@ describe("ENSRenewal Unit Tests", () => {
     let MockBaseRegistrar: ContractFactory;
     let mockBaseRegistrar: Contract;
 
+    // ENS
+
     before(async () => {
-        console.log("-----------------------------------------------");
-        console.log("before all tests")
-        console.log("deploying MockBaseRegistrar contract...")
+        // deploy mock base registrar contract
         MockBaseRegistrar = await ethers.getContractFactory("MockBaseRegistrar");
         mockBaseRegistrar = await MockBaseRegistrar.deploy();
         await mockBaseRegistrar.deployed();
-        console.log("deployed")
 
-        console.log("deploying ENSRenewal contract...")
+        // deploy ENSRenewal contract
         ENSRenewal = await ethers.getContractFactory("ENSRenewal");
         eNSRenewal = await ENSRenewal.deploy(mockBaseRegistrar.address);
         await eNSRenewal.deployed();
-        console.log("deployed")
-        console.log("-----------------------------------------------");
     })
 
     it("should check if ens name is available", async () => {
@@ -37,5 +34,15 @@ describe("ENSRenewal Unit Tests", () => {
         await mockBaseRegistrar.setExpired(false)
         const availability = await eNSRenewal.checkAvailability(0);
         expect(availability).to.equal(false)
+    })
+
+    it("should register a new address", async () => {
+        // TODO: set these variables, need to figure out how to derive the id
+        const id = 0;
+        const owner = "";
+        const duration = 1;
+        await eNSRenewal.register(id, owner, duration)
+        // TODO: expecting the timestamp + duration and should be expiration time
+        // maybe need to just make sure its greater than the timestamp         
     })
 })
