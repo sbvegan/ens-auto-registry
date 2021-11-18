@@ -33,7 +33,7 @@ The new contract will be registered through the [Chainlink Keeper App](https://k
 
 The application will watch specified ENS domains and register them if the previous owner lets them expire.
 
-#
+# Some Hardhat Commands
 
 Try running some of the following tasks:
 
